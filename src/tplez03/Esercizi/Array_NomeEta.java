@@ -46,7 +46,6 @@ public class Array_NomeEta {
                                                                         // che viene incrementato ad ogni giro del mio programma
         
         }
-       
         String report = "\n";    // dichiaro una variabile che userò per l'output dei dati inseriti
         for (int i=0; i<nomi.length; i++) {
         // ora mi creo un output di stampa che mi restituisca tutti i dati inseriti            
@@ -55,13 +54,6 @@ public class Array_NomeEta {
         }
         JOptionPane.showMessageDialog(null, report);        //visualizzo l'output richiesto
 
-                    
-        
-        
-        
-        
-        
-        
     }
     
 } 
