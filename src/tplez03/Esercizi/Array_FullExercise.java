@@ -47,15 +47,27 @@ public class Array_FullExercise {
         }
             // faccio il controllo all'interno del mio array
             int max = 0;
+            String nome = nomi[0];
             for (int i = 0; i < max_nomi; i++) {
                 // guardo un numero per volta e guardo se è il maggiore
                 if (voto[i] > max) {
                     max = voto[i];
+                    nome = nomi[i];
+                }
+            }
+            int min = voto[0];
+            String nome1 = nomi[0];
+            for (int i = 0; i < max_nomi; i++) {
+                // guardo un numero per volta e guardo se è il maggiore
+                if (voto[i] < min) {
+                    min = voto[i];
+                    nome1 = nomi[i];
                 }
             }
             // stampo il report
             JOptionPane.showMessageDialog(null, report);        //visualizzo l'output richiesto
-            JOptionPane.showMessageDialog(null, "Il numero più grande è: " + max);
+            JOptionPane.showMessageDialog(null, "Il voto più alto è: " + " " + nome + " " + max);
+            JOptionPane.showMessageDialog(null, "Il voto più basso è: " + " " + nome1 + " " +  min);
             
         } 
     }
