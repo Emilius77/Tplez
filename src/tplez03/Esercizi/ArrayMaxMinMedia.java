@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tplez01;
+package tplez03.Esercizi;
 
 import javax.swing.JOptionPane;
 
@@ -28,17 +28,16 @@ public class ArrayMaxMinMedia {
         int sommavoti = 0;
         String alunno_maggiore = "";
         String alunno_minore = "";
-        String modelliFiat[]={"punto","doblo","124"};
-        System.out.println(modelliFiat[0]);
+        
         input = JOptionPane.showInputDialog("quanti persone hanno fatto il test");
 
         tot = Integer.parseInt(input);
-        // so in tot quanto siono
+        //so in tot quanto sono
 
         //creo due array separati per caricarci i dati nomi e voti corrispondenti
         String nomi[] = new String[tot]; //gli array vengono dichiarati dopo l'assegnazione delle altre variabili
-
         int voti[] = new int[tot];
+        
         //passo al caricamento degli array 
         for (int i = 0; i < nomi.length; i++) {
 
@@ -52,7 +51,7 @@ public class ArrayMaxMinMedia {
 
 //inizio elaborazione darti
 //unico ciclo che fa tante cose diverse
-        for (int i = 0; i < nomi.length; i++) {
+        /*for (int i = 0; i < nomi.length; i++) {
 
             sommavoti = sommavoti + voti[i];
 
@@ -71,7 +70,7 @@ public class ArrayMaxMinMedia {
 
         } //fine ciclo elabnorazione dati
         //calcolo media in sommavoti !!! risparmio una variabile ma si capisce poco
-        media= sommavoti / tot;
+        media= sommavoti / tot;*/
         
         
         
@@ -91,8 +90,8 @@ public class ArrayMaxMinMedia {
         
         //posso passare a pensare all'output
         
-        System.out.println("il studente col voto maggiore è: " + alunno_maggiore + "  voto: " + max);
-        System.out.println("il studente col voto minore è: " + alunno_minore + "  voto: " + min);
+        System.out.println("Lo studente col voto maggiore è: " + nomemax + "  voto: " + max);
+        System.out.println("Lo studente col voto minore è: " + nomemax + "  voto: " + min);
         System.out.println("la media dei voti è: " + media);
     }
     //creo metodo obbligatorio static caso particolare...
@@ -116,7 +115,6 @@ public class ArrayMaxMinMedia {
                 risultato = valori[i];
                 //salvo dove sta il migliore
                 indexMax=i;
-                
             }
         } //fine ciclo elabnorazione dati
     return indexMax;

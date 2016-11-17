@@ -21,7 +21,7 @@ public class Array_Metodi {
         
         //int esponente = 0;
         // chiedo quanti numeri mi servono
-        int numero = 0;
+        int numero;
         String input = "";
         input = JOptionPane.showInputDialog("Quanti numeri vuoi inserire?");
         numero = Integer.parseInt(input);

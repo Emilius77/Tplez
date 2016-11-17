@@ -1,10 +1,10 @@
-package tplez01;
+package tplez03.Esercizi;
 
 /**
  *
  * @author tss
  */
-public class metodiSemplici {
+public class ArrayMetodiSemplici {
 
     /**
      * @param args the command line arguments

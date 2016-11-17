@@ -21,20 +21,20 @@ public class Array_FullExercise {
         
         // dichiaro le variabili
         int max_nomi = 0;                  // inizializzo la mia variabile che conterrà i nomi
-        double gen_media = 0;
-        double media = 0;
+        //double gen_media = 0;
+        //double media = 0;
         String report = "\n";               // dichiaro una variabile che userò per l'output dei dati inseriti
-        
-        // creo i miei contenitori dei dati (Array)
-        String nomi[] = new String[max_nomi];      // il mio Array nomi prenderà la grandezza assegnata alla variabile max_nomi
-        int voto[] = new int[max_nomi];
-        
+        String nomeR = "";
         
         // chiedo l'input all'utente
         String input = JOptionPane.showInputDialog("Quanti presenti ci sono?");  // chiedo l'input all'utente che mi indichi quanto deve essere grande nomi
         max_nomi = Integer.parseInt(input);         // assegno alla mia variabile "max_nomi" la grandezza indica dall'input utente
         
-        for (int i = 0; i < nomi.length; i++) {
+        // creo i miei contenitori dei dati (Array)
+        String nomi[] = new String [max_nomi];      // il mio Array nomi prenderà la grandezza assegnata alla variabile max_nomi
+        int voto[] = new int [max_nomi];
+        
+        for (int i=0; i < nomi.length; i++) {
             // devo chiedere il nome e caricarlo nella scatola corretta
             int mancano = nomi.length - i;                          // dichiaro una variabile "mancano" che mi restituisca una sorta di conto alla rovescia basandosi
             // sulla grandezza del mio array - il numero di indice che ho scritto
@@ -46,7 +46,7 @@ public class Array_FullExercise {
             voto[i] = Integer.parseInt(input);                                  // indico al programma che deve assegnare il mio input al mio array seguendo l'indice
                                                                         // che viene incrementato ad ogni giro del mio programma
         }
-        
+     
         // inizio le varie elaborazioni necessarie (voto max, voto min, media, report)
         for (int i = 0; i < nomi.length; i++) {
             // ora mi creo un output di stampa che mi restituisca tutti i dati inseriti            
@@ -54,36 +54,33 @@ public class Array_FullExercise {
         }
             // faccio il controllo all'interno del mio array
             int max = 0;
-            String nome = nomi[0];
             for (int i = 0; i < max_nomi; i++) {
                 // guardo un numero per volta e guardo se è il maggiore
-                if (voto[i] > max) {
+                if (voto[i] < max) {
                     max = voto[i];
-                    nome = nomi[i];
                 }
             }
                
             int min = voto[0];
-            String nome1 = nomi[0];
             for (int i = 0; i < max_nomi; i++) {
                 // guardo un numero per volta e guardo se è il minore
                 if (voto[i] < min) {
                     min = voto[i];
-                    nome1 = nomi[i];
                 }
             }
             
             // qui andrò a scrivere il codice per calcolare la media di tutti i voti inseriti
-            for (int i = 0; i < max_nomi; i++) {
-                gen_media = gen_media + voto[i];
-                media = gen_media / max_nomi;
-            }
-            
+            //int media = 0;
+            //for (int i = 0; i < max_nomi; i++) {
+            //    gen_media = gen_media + voto[i];
+            //    media = gen_media / max_nomi;
+            //}
+           
             // stampo il report
             JOptionPane.showMessageDialog(null, report);                //visualizzo l'output richiesto dei dati inseriti
-            JOptionPane.showMessageDialog(null, "Il voto più alto è di: " + " " + nome + " " + max);  // output del voto max
-            JOptionPane.showMessageDialog(null, "Il voto più basso è di: " + " " + nome1 + " " +  min); // output del voto min
-            JOptionPane.showMessageDialog(null, "La media dei voti è: " + " " +  media);        // output della media
+            JOptionPane.showMessageDialog(null, "Il voto più alto è di: " + " " + " " + max);  // output del voto max
+            JOptionPane.showMessageDialog(null, "Il voto più basso è di: " + " "+ " " +  min); // output del voto min
+            JOptionPane.showMessageDialog(null, "La media dei voti è: " + " " +  "media");        // output della media
             } 
     }
 
