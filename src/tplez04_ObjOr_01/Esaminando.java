@@ -25,7 +25,6 @@ public class Esaminando {
         this.nome = nome;
     }
     
-
     // metodi ed abilità dell'oggetto (classe Esaminando)
     // metodo per impostare il voto
     void impostaVoto(int voto) {
