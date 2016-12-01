@@ -37,8 +37,10 @@ public class GiocoCarte {
         Player p2 = new Player("Marco");                   //creo il mio giocatore p2
 
         giocata(p1);
+        System.out.println(p1.getNome() + " " + p1.showCarte());
         giocata(p2);
-
+        System.out.println(p2.getNome() + " " + p2.showCarte());
+        
         double r1, r2;
         r1 = p1.dammiPunteggio();
         r2 = p2.dammiPunteggio();
@@ -55,7 +57,7 @@ public class GiocoCarte {
         }
 
         System.out.println(msg);
-
+        
     }
 
     static public void giocata(Player p1) {
@@ -69,11 +71,12 @@ public class GiocoCarte {
 
             punteggiocorrente = p1.dammiPunteggio();            //chiedo a p1 quanti punti ha
 
-            System.out.println(punteggiocorrente + " + " + cartacorrente.getNome());
+            System.out.println("punteggio di " + p1.getNome() + " - " + punteggiocorrente + " (" + cartacorrente.getNome() + ") ");
 
             if (punteggiocorrente >= 8) {
                 avanti = false;
                 p1.seiFuori();
+                //°System.out.println("\n" + "HO SBALLATO" + "\n");
             } else {
                 //chiedo al giocatore se vuole continuare
                 String input = JOptionPane.showInputDialog("Vuoi continuare? \n invio per continuare \n qualsiasi carattere per uscire");
@@ -86,5 +89,6 @@ public class GiocoCarte {
 
         } //fine gioco p1
     }
+    
 
 }
