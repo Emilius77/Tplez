@@ -29,7 +29,7 @@ public class Soldi {
     }
 
     void add(Soldi valore) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
 }

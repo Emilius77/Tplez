@@ -26,7 +26,7 @@ public class GestionePortafoglio {
         p1.getPortafoglio().addSoldi(valore);
         valore = new Soldi(25, "euro");
         p2.getPortafoglio().addSoldi(valore);
-        p2.getPortafoglio().removeSoldi(25);
+        p2.getPortafoglio().removeSoldi(10);
         
 
         // esempio do 1, 2, 5, 10 e 20 a tutti e due
