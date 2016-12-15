@@ -28,6 +28,4 @@ public class Persona {
         return cognome;
     }
     
-    
-    
 }

@@ -42,8 +42,16 @@ public class Libro {
     public int getCodLibro() {
         return codLibro;
     }
+    
+    public String getInfo () {
+        String msg = "";
+        
+        msg = getCodLibro() + ") " + getTitolo() + " - " + getAutore();
+        return msg;
+    }
 
-// Nessuno deve "settare" il codice del libro!!!    
+// Nessuno deve "settare" il codice del libro!!!   
+    
 //    public void setCodLibro(int codLibro) {
 //        this.codLibro = codLibro;
 //    }

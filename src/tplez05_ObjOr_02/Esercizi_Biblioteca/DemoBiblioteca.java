@@ -5,6 +5,7 @@
  */
 package tplez05_ObjOr_02.Esercizi_Biblioteca;
 
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,10 +26,18 @@ public class DemoBiblioteca {
         //inizio a creare oggetti "Dipendente"
         Dipendente d1 = new Dipendente("Rossi", "Mario", "Bibliotecario");
         Dipendente d2 = new Dipendente("Gentiloni", "Matteo", "Premier");
-        
+                
         //aggiungo i "dipendenti" creati all'interno dell'ArrayList "elencoDipendenti"
-        bib.getElencoDipendenti().add(d2);
         bib.getElencoDipendenti().add(d1);
+        bib.getElencoDipendenti().add(d2);
+        
+        //inizio a creare oggetti "Cliente"
+        Cliente c1 = new Cliente("Sir", "Marco", 1);
+        Cliente c2 = new Cliente("Russo", "Davide", 2);
+        
+        //aggiungo i "clienti" creati all'interno dell'ArrayList "elencoClienti"
+        bib.getElencoClienti().add(c1);
+        bib.getElencoClienti().add(c2);
         
         //inizio a creare oggetti "Libro"
         Libro l1 = new Libro("Il Signore degli Anelli", "J. R. R. Tolkien", 1);
@@ -44,10 +53,25 @@ public class DemoBiblioteca {
         bib.getElencoLibri().add(l4);
         bib.getElencoLibri().add(l5);
         
-        //creo l'istruzione di output che richiama il metodo "getSchederio" della classe "Biblioteca"
-        JOptionPane.showMessageDialog(null, bib.getSchedario());
+        //inizio a creare oggetti "Prestito"
+        Prestito p1 = new Prestito(1, 1, "Sir - il signore degli anelli" + " - " + new Date().toString());
+        Prestito p2 = new Prestito(2, 4, "Russo - enigma" + " - " + new Date().toString());
         
-    
+        //aggiungo i "prestiti" creati all'interno dell'ArrayLIst "elencoPrestiti"
+        bib.getElencoPrestiti().add(p1);
+        bib.getElencoPrestiti().add(p2);
+        
+        
+        //creo l'istruzione di output che richiama il metodo "getSchederio" della classe "Biblioteca"
+        // JOptionPane.showMessageDialog(null, bib.getSchedario());
+        
+         /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new DemoWindowBiblioteca(bib).setVisible(true);
+            }
+        });
+        
     }
     
 }

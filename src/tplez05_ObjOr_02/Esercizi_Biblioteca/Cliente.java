@@ -10,7 +10,7 @@ package tplez05_ObjOr_02.Esercizi_Biblioteca;
  * @author tss
  */
 public class Cliente extends Persona {
-    
+
     private int codCliente;
 
     public Cliente(String cognome, String nome, int codCliente) {
@@ -18,10 +18,8 @@ public class Cliente extends Persona {
         this.codCliente = codCliente;
     }
 
-    public int getIdCliente() {
+    public int getCodCliente() {
         return codCliente;
     }
-    
-    
-    
+
 }
