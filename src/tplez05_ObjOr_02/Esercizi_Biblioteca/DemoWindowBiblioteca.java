@@ -7,6 +7,7 @@ package tplez05_ObjOr_02.Esercizi_Biblioteca;
 
 import java.util.Date;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 /**
@@ -18,52 +19,51 @@ public class DemoWindowBiblioteca extends javax.swing.JFrame {
     /**
      * Creates new form DemoWindowBiblioteca
      */
-    
     Biblioteca bib;
     Dipendente dip;
     DefaultListModel modelLibri = new DefaultListModel();
     DefaultListModel modelClienti = new DefaultListModel();
     DefaultListModel modelPrestiti = new DefaultListModel();
-    
+
     public DemoWindowBiblioteca(Biblioteca bib) {
         this.bib = bib;
         initComponents();
-        
+
         //creiamo la variabile String "nomedip", leghiamo l'indice 0 di elencoDipendenti all'attributo "dip", assegniamo alla variabile "nomedip" l'attributo "dip" richiamando il ".getCognome" 
         String nomedip;
         dip = bib.getElencoDipendenti().get(0);
         nomedip = dip.getCognome();
-        
+
         jlTitoloWind.setText("Form Gestione Biblioteca" + " - " + new Date().toString() + " - Dipendente: " + nomedip);
         refreshLibri();
         refreshClienti();
         refreshPrestiti();
-        
+
     }
-    
-    private void refreshPrestiti () {
+
+    private void refreshPrestiti() {
         modelPrestiti = new DefaultListModel();
         for (Prestito p : bib.getElencoPrestiti()) {
             modelPrestiti.addElement(p.getNote());
-            
+
         }
         jPrestiti.setModel(modelPrestiti);
     }
-    
-    private void refreshClienti () {
+
+    private void refreshClienti() {
         modelClienti = new DefaultListModel();
         for (Cliente c : bib.getElencoClienti()) {
             modelClienti.addElement(c.getCognome() + " " + c.getNome());
-            
+
         }
         jClienti.setModel(modelClienti);
     }
 
-    private void refreshLibri () {
+    private void refreshLibri() {
         modelLibri = new DefaultListModel();
         for (Libro l : bib.getElencoLibri()) {
             modelLibri.addElement(l.getInfo());
-            
+
         }
         jLibri.setModel(modelLibri);
     }
@@ -272,15 +272,15 @@ public class DemoWindowBiblioteca extends javax.swing.JFrame {
 
     private void jbAddLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddLibroActionPerformed
         // TODO add your handling code here:
-        
+
         String ris;
         ris = dip.addNewLibro(jtTitoloLibro.getText(), jtAutoreLibro.getText(), bib);
         jtxtMsgLibri.setText(ris);
         refreshLibri();
         jtTitoloLibro.setText("");
         jtAutoreLibro.setText("");
-        
-        
+
+
     }//GEN-LAST:event_jbAddLibroActionPerformed
 
     private void jbDelLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDelLibroActionPerformed
@@ -293,28 +293,31 @@ public class DemoWindowBiblioteca extends javax.swing.JFrame {
 
     private void jLibriValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jLibriValueChanged
         // TODO add your handling code here:
-        
+
         String ris = "";
         ris = jLibri.getSelectedValue();
         jtxtMsgLibri.setText(ris);
-        
+
     }//GEN-LAST:event_jLibriValueChanged
 
     private void jbAddPrestitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddPrestitoActionPerformed
         // TODO add your handling code here:
-        
+
         int indexCliente = jClienti.getSelectedIndex();
         int indexLibro = jLibri.getSelectedIndex();
-        
+
         indexCliente = bib.getElencoClienti().get(indexCliente).getCodCliente();
         indexLibro = bib.getElencoLibri().get(indexLibro).getCodLibro();
-        
+
+        if (bib.isDisponibile(indexLibro) && !bib.isClienteMaxLimit(indexCliente)) {
+        //codice vincolato alla disponibilità del libro
         dip.addNewPrestito(indexLibro, indexCliente, jClienti.getSelectedValue() + " - " + jLibri.getSelectedValue(), bib);
-        refreshPrestiti();
-        
+        refreshPrestiti(); 
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Libro non disponibile");
+        }
     }//GEN-LAST:event_jbAddPrestitoActionPerformed
 
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> jClienti;
@@ -337,5 +340,4 @@ public class DemoWindowBiblioteca extends javax.swing.JFrame {
     private javax.swing.JTextArea jtxtMsgLibri;
     // End of variables declaration//GEN-END:variables
 
-    
 }
