@@ -44,19 +44,19 @@ public class Dipendente extends Persona {
         return msg;
     }
     
-    //creo un metodo che mi permetta di "aggiungere / creare" un nuovo prestito
-    public String addNewPrestito(int codLibro, int codCliente, Biblioteca bib) {
-        String msg = "Impossibile aggiungere il prestito";
-        
-        if(codCliente < 0 || codLibro < 0) return msg;  //abbiamo inserito un controllo che serve a prevenire che si lascino i campi vuoti
-        
-        //creo un nuovo oggetto prestito
-        Prestito p = new Prestito(codLibro, codCliente, "prestito del " + new Date().toString());
-        bib.getElencoPrestiti().add(p);
-
-        msg = "Aggiungo prestito " + codCliente + codLibro;
-        return msg;
-    }
+//    //creo un metodo che mi permetta di "aggiungere / creare" un nuovo prestito
+//    public String addNewPrestito(int codLibro, int codCliente, Biblioteca bib) {
+//        String msg = "Impossibile aggiungere il prestito";
+//        
+//        if(codCliente < 0 || codLibro < 0) return msg;  //abbiamo inserito un controllo che serve a prevenire che si lascino i campi vuoti
+//        
+//        //creo un nuovo oggetto prestito
+//        Prestito p = new Prestito(codLibro, codCliente, "prestito del " + new Date().toString());
+//        bib.getElencoPrestiti().add(p);
+//
+//        msg = "Aggiungo prestito " + codCliente + codLibro;
+//        return msg;
+//    }
     
      //creo un metodo che mi permetta di "aggiungere / creare" un nuovo prestito
     public String addNewPrestito(int codLibro, int codCliente, String note, Biblioteca bib) {
@@ -65,7 +65,8 @@ public class Dipendente extends Persona {
         if(codCliente < 0 || codLibro < 0) return msg;  //abbiamo inserito un controllo che serve a prevenire che si lascino i campi vuoti
         
         //creo un nuovo oggetto prestito
-        Prestito p = new Prestito(codLibro, codCliente, note + " - " + new Date().toString());
+        Prestito p = new Prestito(codLibro, codCliente, "[" + bib.getElencoPrestiti().size() + "]" +note + " - " + new Date().toString());
+//        Prestito p = new Prestito(codLibro, codCliente, note + " - " + new Date().toString());
         bib.getElencoPrestiti().add(p);
 
         msg = "Aggiungo prestito " + codCliente + codLibro;
@@ -81,6 +82,17 @@ public class Dipendente extends Persona {
             msg = "Libro Eliminato";
         } 
            
+        return msg;
+    }
+    
+    //creo un metodo che mi permetta di "rimuovere" un prestito (gestione reso)
+    public String removePrestito (int index, Biblioteca bib) {
+        String msg = "Non hai selezionato nulla";
+        if (index < bib.getElencoPrestiti().size() && index >=0) {
+            
+            bib.getElencoPrestiti().remove(index);
+            msg = "Libro Restituito";
+        }
         return msg;
     }
 }

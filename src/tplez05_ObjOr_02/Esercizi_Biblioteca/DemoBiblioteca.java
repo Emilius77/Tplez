@@ -54,8 +54,9 @@ public class DemoBiblioteca {
         bib.getElencoLibri().add(l5);
         
         //inizio a creare oggetti "Prestito"
-        Prestito p1 = new Prestito(1, 1, "Sir - il signore degli anelli" + " - " + new Date().toString());
-        Prestito p2 = new Prestito(2, 4, "Russo - enigma" + " - " + new Date().toString());
+        Prestito p1 = new Prestito(1, 1, "[0] Sir Marco - 1) Il signore degli anelli " + " - " + new Date().toString());
+        Prestito p2 = new Prestito(4, 2, "[1] Russo Davide - 4) Enigma" + " - " + new Date().toString());
+       
         
         //aggiungo i "prestiti" creati all'interno dell'ArrayLIst "elencoPrestiti"
         bib.getElencoPrestiti().add(p1);
@@ -63,7 +64,7 @@ public class DemoBiblioteca {
         
         
         //creo l'istruzione di output che richiama il metodo "getSchederio" della classe "Biblioteca"
-        // JOptionPane.showMessageDialog(null, bib.getSchedario());
+        //JOptionPane.showMessageDialog(null, bib.getSchedario());
         
          /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
