@@ -24,7 +24,9 @@ public class DemoWindowBiblioteca extends javax.swing.JFrame {
     DefaultListModel modelLibri = new DefaultListModel();
     DefaultListModel modelClienti = new DefaultListModel();
     DefaultListModel modelPrestiti = new DefaultListModel();
+
     DefaultListModel modelResi = new DefaultListModel();
+
 
     public DemoWindowBiblioteca(Biblioteca bib) {
         this.bib = bib;
@@ -39,7 +41,9 @@ public class DemoWindowBiblioteca extends javax.swing.JFrame {
         refreshLibri();
         refreshClienti();
         refreshPrestiti();
+
         refreshResi();
+
 
     }
 
@@ -48,7 +52,9 @@ public class DemoWindowBiblioteca extends javax.swing.JFrame {
         for (Prestito p : bib.getElencoPrestiti()) {
             if (p.getDataFinePrestito() == ""){
             modelPrestiti.addElement(p.getNote());
+
             }
+
 
         }
         jLibriPrestati.setModel(modelPrestiti);
@@ -368,6 +374,7 @@ public class DemoWindowBiblioteca extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jbAddPrestitoActionPerformed
 
+
     private void jbRestituzioneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRestituzioneActionPerformed
         // TODO add your handling code here:
               
@@ -383,12 +390,8 @@ public class DemoWindowBiblioteca extends javax.swing.JFrame {
         refreshPrestiti();
         refreshResi();
         
-        
-        
-        
-        
-        
     }//GEN-LAST:event_jbRestituzioneActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
