@@ -20,7 +20,9 @@ public class Biblioteca {
     private ArrayList<Cliente> elencoClienti = new ArrayList<Cliente>();            //creo l'arrayList "elencoClienti" e lo istanzio (= new ArrayList<Cliente>())    
     private ArrayList<Libro> elencoLibri = new ArrayList<Libro>();                 //creo l'arrayList "elencoLibrii" e lo istanzio (= new ArrayList<Libro>())
     private ArrayList<Prestito> elencoPrestiti = new ArrayList<Prestito>();         //creo l'arrayList "elencoPrestiti" e lo istanzio (= new ArrayList<Prestito>())
+
     private ArrayList<Prestito> elencoResi = new ArrayList<Prestito>();         //creo l'arrayList "elencoPrestiti" e lo istanzio (= new ArrayList<Prestito>())
+
 
     public Biblioteca(String nomeBiblioteca, String indirizzo) {
         this.nomeBiblioteca = nomeBiblioteca;
@@ -59,6 +61,7 @@ public class Biblioteca {
     public ArrayList<Prestito> getElencoPrestiti() {
         return elencoPrestiti;
     }
+
     
     public ArrayList<Prestito> getElencoResi() {
         return elencoResi;
